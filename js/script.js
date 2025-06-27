@@ -34,5 +34,38 @@ function parImpar() {
     }
 
     function maiorMenor(){
-        
+        listaNumeros = [];
+        for (let i = 0; i < 3; i++){
+            const entrada = prompt(`Digite o ${i+1}º número: `);
+
+            //Validação
+            if (entrada === null || entrada.trim() ==''){
+                alert('Campo não pode ser vazio!');
+                return;
+            }
+
+            // Casting
+            const numero = Number(entrada)
+
+            if (isNaN(numero)){
+                alert('Favor digitar um número!');
+                return;
+            }
+            //Coloca o número na lista
+            listaNumeros.push(numero);
+        }
+
+        //Verificar números iguais
+        const numerosIguais = listaNumeros.every(n => n === numeros[0]);
+
+        if (numerosIguais) {
+            alert(`Os números são iguais: ${numeros[0]}!!!`);
+            return;
+        }
+
+        //Encontrar o Maior e menor
+        const maiorNumero = Math.max(...numeros);
+        const menorNumero = Math.min(...numeros);
+
+        alert(`Maior número: ${maiorNumero}, Menor número: ${menorNumero}`);
     }
