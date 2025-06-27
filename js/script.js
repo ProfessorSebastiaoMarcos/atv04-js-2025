@@ -1,9 +1,9 @@
 document.getElementById('botao-par-impar').addEventListener('click', function () {
-    parImpar()
+    parImpar();
 });
 
 document.getElementById('botao-maior-menor').addEventListener('click', function () {
-    maiorMenor()
+    maiorMenor();
 });
 
 
