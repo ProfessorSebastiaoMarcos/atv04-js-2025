@@ -32,12 +32,16 @@ img {
 }
 
 button {
-    padding: 8px;
-    width: 100%;
+    border-radius: 10px; /* Quanto maior o valor, mais arredondado */
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
 }
 
 p {
-    font-size: 1.2em;
-    color: rgb(119, 8, 8);
+    font-size: 2em;
+    color: rgb(0, 0, 0);
 }
 

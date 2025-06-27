@@ -34,6 +34,7 @@ function parImpar() {
     }
 
     function maiorMenor(){
+        console.log('chegou aqui!')
         listaNumeros = [];
         for (let i = 0; i < 3; i++){
             const entrada = prompt(`Digite o ${i+1}º número: `);
@@ -56,16 +57,16 @@ function parImpar() {
         }
 
         //Verificar números iguais
-        const numerosIguais = listaNumeros.every(n => n === numeros[0]);
+        const numerosIguais = listaNumeros.every(n => n === listaNumeros[0]);
 
         if (numerosIguais) {
-            alert(`Os números são iguais: ${numeros[0]}!!!`);
+            alert(`Os números são iguais: ${listaNumeros[0]}!!!`);
             return;
         }
 
         //Encontrar o Maior e menor
-        const maiorNumero = Math.max(...numeros);
-        const menorNumero = Math.min(...numeros);
+        const maiorNumero = Math.max(...listaNumeros);
+        const menorNumero = Math.min(...listaNumeros);
 
         alert(`Maior número: ${maiorNumero}, Menor número: ${menorNumero}`);
     }
