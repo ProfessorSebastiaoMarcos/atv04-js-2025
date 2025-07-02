@@ -7,6 +7,10 @@ document.getElementById('botao-maior-menor').addEventListener('click', function 
     maiorMenor();
 });
 
+document.getElementById('botao-velocidade').addEventListener('click', function () {
+    velocidade();
+});
+
 
 
 function parImpar() {
@@ -72,4 +76,26 @@ function maiorMenor() {
     alert(`Maior número: ${maiorNumero}, Menor número: ${menorNumero}`);
 }
 
+function velocidade() {
+    const entrada = prompt('Entre com a velocidade!');
+    const velocidade = Number(entrada);
+
+    //Validação
+    if (entrada === null || entrada.trim() == '') {
+        alert('Campo não pode ser vazio!');
+        return;
+    } else if (isNaN(velocidade)) {
+        alert('Favor digitar um número!');
+        return;
+    } else if (velocidade < 0) {
+        alert('O veículonão está em movimento!');
+        return;
+    }
+
+    if (velocidade <= 60) {
+        alert('Velocidade normal!');
+    } else {
+        alert('Valocidade acima do permitido!')
+    }
+}
 
