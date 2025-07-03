@@ -11,26 +11,26 @@ document.getElementById('botao-velocidade').addEventListener('click', function (
     velocidade();
 });
 
-
+document.getElementById('botao-salario').addEventListener('click', function () {
+    calcularAumento();
+});
 
 function parImpar() {
     const entrada = prompt('Digite um número: ');
 
-    if (entrada === null || entrada.trim() === '') {
+    //IFs Separados
+    if (entrada === null) {
         alert('É preciso digitar um número!');
         return;
     }
 
-    // Casting
     const numero = Number(entrada);
 
-    // Validação
     if (isNaN(numero)) {
         alert('Não é um número!');
         return;
     }
 
-    //Testando
     if (numero % 2 === 0) {
         alert(`O número ${numero} é par!`)
     } else {
@@ -39,18 +39,15 @@ function parImpar() {
 }
 
 function maiorMenor() {
-    //console.log('chegou aqui!')
     const listaNumeros = [];
     for (let i = 0; i < 3; i++) {
         const entrada = prompt(`Digite o ${i + 1}º número: `);
 
-        //Validação
-        if (entrada === null || entrada.trim() == '') {
+        if (entrada === null || entrada.trim() === '') {
             alert('Campo não pode ser vazio!');
             return;
         }
 
-        // Casting
         const numero = Number(entrada)
 
         if (isNaN(numero)) {
@@ -61,7 +58,9 @@ function maiorMenor() {
         listaNumeros.push(numero);
     }
 
-    //Verificar números iguais
+    //Isso é uma arrow function que 
+    // verifica se cada elemento da lista (n) é igual ao 
+    // primeiro elemento da lista (listaNumeros[0]).
     const numerosIguais = listaNumeros.every(n => n === listaNumeros[0]);
 
     if (numerosIguais) {
@@ -69,7 +68,6 @@ function maiorMenor() {
         return;
     }
 
-    //Encontrar o Maior e menor
     const maiorNumero = Math.max(...listaNumeros);
     const menorNumero = Math.min(...listaNumeros);
 
@@ -80,8 +78,8 @@ function velocidade() {
     const entrada = prompt('Entre com a velocidade!');
     const velocidade = Number(entrada);
 
-    //Validação
-    if (entrada === null || entrada.trim() == '') {
+    //IFs aninhados
+    if (entrada === null || entrada.trim() === '') {
         alert('Campo não pode ser vazio!');
         return;
     } else if (isNaN(velocidade)) {
@@ -99,3 +97,25 @@ function velocidade() {
     }
 }
 
+function calcularAumento() {
+    const entrada = prompt('Entre com o valor do salário: ')
+    const salario = parseFloat(entrada)
+
+    if (entrada === null || entrada.trim() === '') {
+        alert('Campo não pode ser vazio!');
+        return;
+    } else if (isNaN(salario)) {
+        alert('Favor digitar um número!');
+        return;
+    } else if (salario <= 1000) {
+        const salarioNovo = salario + (salario *.10)        
+        alert(`Salário antigo: R$${salario} => Novo Salário: R$${salarioNovo}`);
+        return;
+    } else if (salario > 1500) {
+        const salarioNovo = salario + (salario *.05)        
+        alert(`Salário antigo: R$${salario} => Novo Salário: R$${salarioNovo}`);
+        return;
+    } else {
+        alert(`Não houve reajuste Salarial: R$${salario}`);
+    }
+}
